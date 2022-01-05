@@ -1,4 +1,4 @@
-// playable fifteen puzzle game
+// main class. playable fifteen puzzle game
 
 import java.util.Scanner;
 
