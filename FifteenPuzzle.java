@@ -21,27 +21,28 @@ public class FifteenPuzzle {
         System.out.println("Enter \"e\" at any time to end the game.\nGood luck!\n");
 
         // continues to loop until user decides to exit the program
-        while (nextMove != 'e') {
+        while (nextMove != 'e' && nextMove != 'E') {
 
             // continues to loop while puzzle is unsolved and user hasn't exited
-            while ((grid.isSolved() == false) && (nextMove != 'e')) {
+            while ((grid.isSolved() == false) && (nextMove != 'e' && nextMove != 'E')) {
                 System.out.println(grid.showGrid());
                 nextMove = input.next().charAt(0);
                 grid.move(nextMove);
             }
 
             String yesOrNo = "o";
+            input.nextLine();
 
             // continues to loop until yes or no is typed. this loop is bypassed if user has decided to exit the program early
-            while (((yesOrNo != "yes") && (yesOrNo != "no")) && (nextMove != 'e')) {
+            while (((!yesOrNo.equals("yes")) && (!yesOrNo.equals("no"))) && (nextMove != 'e' && nextMove != 'E')) {
                 System.out.println("You win! Want to play again? Type \"yes\" or \"no\".");
                 yesOrNo = input.nextLine().toLowerCase();
 
-                if (yesOrNo == "no") {
+                if (yesOrNo.equals("no")) {
                     nextMove = 'e';
                 }
-
-                else if (yesOrNo == "yes") {
+                else if (yesOrNo.equals("yes")) {
+                    grid.shuffle();
                     System.out.println();
                 }
 

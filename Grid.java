@@ -99,7 +99,7 @@ public class Grid {
     public void move(char wasd) {
 
         // up
-        if (wasd == 'w') {
+        if (wasd == 'w' || wasd == 'W') {
             if (this.blankTile > 3) {
                 tiles[this.blankTile] = tiles[this.blankTile - 4];
                 this.blankTile = this.blankTile - 4;
@@ -108,7 +108,7 @@ public class Grid {
         }
 
         // left
-        else if (wasd == 'a') {
+        else if (wasd == 'a' || wasd == 'A') {
             if ((this.blankTile % 4) != 0) {
                 tiles[this.blankTile] = tiles[this.blankTile - 1];
                 this.blankTile = this.blankTile - 1;
@@ -117,7 +117,7 @@ public class Grid {
         }
 
         // down
-        else if (wasd == 's') {
+        else if (wasd == 's' || wasd == 'S') {
             if (this.blankTile < 12) {
                 tiles[this.blankTile] = tiles[this.blankTile + 4];
                 this.blankTile = this.blankTile + 4;
@@ -126,7 +126,7 @@ public class Grid {
         }
 
         // right
-        else if (wasd == 'd') {
+        else if (wasd == 'd' || wasd == 'D') {
             if ((this.blankTile != 3) && (this.blankTile != 7) && (this.blankTile != 11) && (this.blankTile != 15)) {
                 tiles[this.blankTile] = tiles[this.blankTile + 1];
                 this.blankTile = this.blankTile + 1;
