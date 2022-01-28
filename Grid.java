@@ -1,7 +1,9 @@
-// models the physical grid for the fifteen puzzle
-
 import java.util.ArrayList;
 
+/**
+ * @author Matthew Perry
+ * Description: Grid is the physical grid for the fifteen puzzle. It is randomly generated and changes as moves are made.
+ */
 public class Grid {
 
     // order of tiles
@@ -9,7 +11,11 @@ public class Grid {
     // position of the blank tile
     private int blankTile;
 
-    // constructs a new shuffled grid
+    /**
+     * Description: Constructs a new shuffled grid.
+     * Pre-Condition: None.
+     * Post-Condition: A new grid with 16 tiles is constructed.
+     */
     public Grid() {
         this.tiles = new int[16];
         this.blankTile = 0;
@@ -26,7 +32,11 @@ public class Grid {
 
     */
 
-    // returns the current grid
+    /**
+     * Description: Returns the grid as a String.
+     * Pre-Condition: There must be 16 tiles in the grid.
+     * Post-Condition: The grid is returned.
+     */
     public String showGrid() {
         String grid = "";
         for (int i = 0; i < 16; i+=4) {
@@ -46,7 +56,11 @@ public class Grid {
         return grid;
     }
 
-    // shuffles grid into a random order
+    /**
+     * Description: Shuffles the grid's tiles into a random order.
+     * Pre-Condition: There must be 16 tiles in the grid.
+     * Post-Condition: The grid is shuffled into a new order.
+     */
     public void shuffle() {
         // the grid keeps shuffling until it is in a solvable position. only half of the possible positions are solvable
         while (this.isSolvable() == false) {
@@ -66,7 +80,11 @@ public class Grid {
         }
     }
 
-    // determines if the starting position is solvable
+    /**
+     * Description: Returns a boolean indicating if the grid's starting position is solvable or not.
+     * Pre-Condition: There must be 16 tiles in the grid.
+     * Post-Condition: Returns true if the grid can be solved and false if it is impossible to solve.
+     */
     private boolean isSolvable () {
         // prevents the user from getting a puzzle that is already solved
         if (this.isSolved() == true) {
@@ -95,49 +113,56 @@ public class Grid {
         }
     }
 
-    // moves the position of the blank tile
+    /**
+     * Description: Moves the position of the blank tile.
+     * Pre-Condition: The parameter must be a char.
+     * Post-Condition: If the move is valid, the blank tile is swapped with the tile in the desired direction of movement.
+     */
     public void move(char wasd) {
 
-        // up
+        // move up
         if (wasd == 'w' || wasd == 'W') {
             if (this.blankTile > 3) {
-                tiles[this.blankTile] = tiles[this.blankTile - 4];
+                this.tiles[this.blankTile] = this.tiles[this.blankTile - 4];
                 this.blankTile = this.blankTile - 4;
-                tiles[this.blankTile] = 0;
+                this.tiles[this.blankTile] = 0;
             }
         }
 
-        // left
+        // move left
         else if (wasd == 'a' || wasd == 'A') {
             if ((this.blankTile % 4) != 0) {
-                tiles[this.blankTile] = tiles[this.blankTile - 1];
+                this.tiles[this.blankTile] = this.tiles[this.blankTile - 1];
                 this.blankTile = this.blankTile - 1;
-                tiles[this.blankTile] = 0;
+                this.tiles[this.blankTile] = 0;
             }
         }
 
-        // down
+        // move down
         else if (wasd == 's' || wasd == 'S') {
             if (this.blankTile < 12) {
-                tiles[this.blankTile] = tiles[this.blankTile + 4];
+                this.tiles[this.blankTile] = this.tiles[this.blankTile + 4];
                 this.blankTile = this.blankTile + 4;
-                tiles[this.blankTile] = 0;
+                this.tiles[this.blankTile] = 0;
             }
         }
 
-        // right
+        // move right
         else if (wasd == 'd' || wasd == 'D') {
             if ((this.blankTile != 3) && (this.blankTile != 7) && (this.blankTile != 11) && (this.blankTile != 15)) {
-                tiles[this.blankTile] = tiles[this.blankTile + 1];
+                this.tiles[this.blankTile] = this.tiles[this.blankTile + 1];
                 this.blankTile = this.blankTile + 1;
-                tiles[this.blankTile] = 0;
+                this.tiles[this.blankTile] = 0;
             }
         }
     }
 
-    // determines if the puzzle is solved
+    /**
+     * Description: Determines if the puzzle is solved.
+     * Pre-Condition: There must be 16 tiles in the grid.
+     * Post-Condition: True is returned if the grid is solved and false is returned if the grid is not solved.
+     */
     public boolean isSolved() {
-        int correctSquares = 0;
         for (int i = 0; i < 15; i++) {
             if (this.tiles[i] != (i + 1)) {
                 return false;
@@ -145,4 +170,5 @@ public class Grid {
         }
         return true;
     }
+
 }

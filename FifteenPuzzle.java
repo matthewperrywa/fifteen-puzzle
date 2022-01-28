@@ -1,7 +1,9 @@
-// main class. playable fifteen puzzle game
-
 import java.util.Scanner;
 
+/**
+ * @author Matthew Perry
+ * Description: Main class. Playable fifteen puzzle.
+ */
 public class FifteenPuzzle {
     public static void main(String[] args) {
 
@@ -25,8 +27,10 @@ public class FifteenPuzzle {
 
             // continues to loop while puzzle is unsolved and user hasn't exited
             while ((grid.isSolved() == false) && (nextMove != 'e' && nextMove != 'E')) {
+                // the grid is printed to show its current position
                 System.out.println(grid.showGrid());
                 nextMove = input.next().charAt(0);
+                // the move will be executed if it is valid
                 grid.move(nextMove);
             }
 
@@ -51,6 +55,6 @@ public class FifteenPuzzle {
         }
 
         System.out.print("\nThanks for playing!");
-
+        input.close();
     }
 }
