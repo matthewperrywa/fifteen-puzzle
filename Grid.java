@@ -14,7 +14,7 @@ public class Grid {
     /**
      * Description: Constructs a new shuffled grid.
      * Pre-Condition: None.
-     * Post-Condition: A new grid with 16 tiles is constructed.
+     * Post-Condition: The grid with its shuffled starting state is created.
      */
     public Grid() {
         this.tiles = new int[16];
@@ -35,7 +35,7 @@ public class Grid {
     /**
      * Description: Returns the grid as a String.
      * Pre-Condition: None.
-     * Post-Condition: The grid is returned.
+     * Post-Condition: None.
      */
     public String showGrid() {
         String grid = "";
@@ -83,7 +83,7 @@ public class Grid {
     /**
      * Description: Returns a boolean indicating if the grid's starting position is solvable or not.
      * Pre-Condition: None.
-     * Post-Condition: Returns true if the grid can be solved and false if it is impossible to solve.
+     * Post-Condition: None.
      */
     private boolean isSolvable () {
         // prevents the user from getting a puzzle that is already solved
@@ -115,7 +115,7 @@ public class Grid {
 
     /**
      * Description: Moves the position of the blank tile.
-     * Pre-Condition: The parameter must be a char. For the move to be valid, the char must be 'w', 'a', 's', or 'd'.
+     * Pre-Condition: For the move to be valid, the char must be 'w', 'a', 's', or 'd'. Uppercase chars are fine too.
      *                Invalid moves will result in nothing happening. 'w' = up. 'a' = left. 's' = down. 'd' = right.
      * Post-Condition: If the move is valid, the blank tile is swapped with the tile in the desired direction of movement.
      */
@@ -161,7 +161,7 @@ public class Grid {
     /**
      * Description: Determines if the puzzle is solved.
      * Pre-Condition: None.
-     * Post-Condition: True is returned if the grid is solved and false is returned if the grid is not solved.
+     * Post-Condition: None.
      */
     public boolean isSolved() {
         for (int i = 0; i < 15; i++) {
