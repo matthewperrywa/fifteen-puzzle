@@ -14,7 +14,7 @@ public class Grid {
     /**
      * Description: Constructs a new shuffled grid.
      * Pre-Condition: None.
-     * Post-Condition: The grid with its shuffled starting state is created.
+     * Post-Condition: The grid with its randomly shuffled starting state is created.
      */
     public Grid() {
         this.tiles = new int[16];
@@ -31,6 +31,28 @@ public class Grid {
         [13] [14] [15] [  ]
 
     */
+
+    /**
+     * Description: Returns the grid as an array of ints. A value of 0 indicates the blank space.
+     * Pre-Condition: None.
+     * Post-Condition: None.
+     */
+    public int[] toArray() {
+        int[] output = new int[16];
+        for (int i = 0; i < 16; i++) {
+            output[i] = this.tiles[i];
+        }
+        return output;
+    }
+
+    /**
+     * Description: Returns the index of the blank tile.
+     * Pre-Condition: None.
+     * Post-Condition: None.
+     */
+    public int getBlankTile() {
+        return this.blankTile;
+    }
 
     /**
      * Description: Returns the grid as a String.

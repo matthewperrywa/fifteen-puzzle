@@ -2,10 +2,17 @@ import java.util.Scanner;
 
 /**
  * @author Matthew Perry
- * Description: Main class. Playable fifteen puzzle.
+ * Description: Main class. Playable fifteen puzzle with a GUI.
  */
 public class FifteenPuzzle {
     public static void main(String[] args) {
+
+        // startPane will open up a JOptionPane that will introduce the rules and allow the user to play the game
+        StartPane startPane = new StartPane(true);
+
+        /*
+
+        THE CODE BELOW IS FOR A TEXT BASED VERSION OF THE GAME. THIS IS WHAT I ORIGINALLY CODED BEFORE MAKING A VERSION WITH A GUI.
 
         Scanner input = new Scanner(System.in);
         Grid grid = new Grid();
@@ -56,5 +63,7 @@ public class FifteenPuzzle {
 
         System.out.print("\nThanks for playing!");
         input.close();
+
+        */
     }
 }
